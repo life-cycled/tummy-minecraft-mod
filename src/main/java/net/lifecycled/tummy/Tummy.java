@@ -1,6 +1,10 @@
 package net.lifecycled.tummy;
 
 import com.mojang.logging.LogUtils;
+import net.lifecycled.tummy.item.ModCreativeModeTabs;
+import net.lifecycled.tummy.item.ModItems;
+import net.minecraft.world.item.CreativeModeTab;
+import net.minecraft.world.item.CreativeModeTabs;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.event.CreativeModeTabEvent;
@@ -25,6 +29,8 @@ public class Tummy
     {
         IEventBus modEventBus = FMLJavaModLoadingContext.get().getModEventBus();
 
+        ModItems.register(modEventBus);
+
         // Register the commonSetup method for modloading
         modEventBus.addListener(this::commonSetup);
 
@@ -42,7 +48,30 @@ public class Tummy
 
     private void addCreative(CreativeModeTabEvent.BuildContents event)
     {
+        if (event.getTab() == ModCreativeModeTabs.TUMMY_TAB)
+        {
+            event.accept(ModItems.TUMMY_SPAWN_EGG);
+        }
 
+        if (event.getTab() == ModCreativeModeTabs.TUMMY_TAB)
+        {
+            event.accept(ModItems.TUMMY_HARNESS);
+        }
+
+        if (event.getTab() == ModCreativeModeTabs.TUMMY_TAB)
+        {
+            event.accept(ModItems.COMMAND_STICK);
+        }
+
+        if (event.getTab() == ModCreativeModeTabs.TUMMY_TAB)
+        {
+            event.accept(ModItems.TUMMY_SATCHEL);
+        }
+
+        if (event.getTab() == ModCreativeModeTabs.TUMMY_TAB)
+        {
+            event.accept(ModItems.TUMMY_SUMMONER);
+        }
     }
 
     @Mod.EventBusSubscriber(modid = MODID, bus = Mod.EventBusSubscriber.Bus.MOD, value = Dist.CLIENT)
