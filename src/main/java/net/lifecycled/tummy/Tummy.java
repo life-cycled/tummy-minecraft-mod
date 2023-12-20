@@ -1,6 +1,7 @@
 package net.lifecycled.tummy;
 
 import com.mojang.logging.LogUtils;
+import net.lifecycled.tummy.block.ModBlocks;
 import net.lifecycled.tummy.item.ModCreativeModeTabs;
 import net.lifecycled.tummy.item.ModItems;
 import net.minecraft.world.item.CreativeModeTab;
@@ -30,6 +31,8 @@ public class Tummy
         IEventBus modEventBus = FMLJavaModLoadingContext.get().getModEventBus();
 
         ModItems.register(modEventBus);
+        ModBlocks.register(modEventBus);
+
 
         // Register the commonSetup method for modloading
         modEventBus.addListener(this::commonSetup);
@@ -48,6 +51,8 @@ public class Tummy
 
     private void addCreative(CreativeModeTabEvent.BuildContents event)
     {
+        // also add block items here
+
         if (event.getTab() == ModCreativeModeTabs.TUMMY_TAB)
         {
             event.accept(ModItems.TUMMY_SPAWN_EGG);
@@ -71,6 +76,11 @@ public class Tummy
         if (event.getTab() == ModCreativeModeTabs.TUMMY_TAB)
         {
             event.accept(ModItems.TUMMY_SUMMONER);
+        }
+
+        if (event.getTab() == ModCreativeModeTabs.TUMMY_TAB)
+        {
+            event.accept(ModBlocks.TUMMY_BED);
         }
     }
 
