@@ -1,0 +1,26 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "A": {
+      "item": "minecraft:cake"
+    },
+    "B": {
+      "item": "minecraft:ender_eye"
+    },
+    "C": {
+      "item": "minecraft:diamond"
+    },
+    "E": {
+      "item": "minecraft:cookie"
+    }
+  },
+  "pattern": [
+    "AAA",
+    "BCB",
+    "EEE"
+  ],
+  "result": {
+    "item": "tummy:tummy_summoner"
+  }
+}
